@@ -1,8 +1,6 @@
 package com.opensource.widget;
 
 
-import org.nightweaver.roundimageviewlib.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
