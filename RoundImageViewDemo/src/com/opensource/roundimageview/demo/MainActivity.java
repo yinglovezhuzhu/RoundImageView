@@ -1,4 +1,4 @@
-package org.nightweaver.roundimageviewexample;
+package com.opensource.roundimageview.demo;
 
 
 import android.app.Activity;
@@ -7,8 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import com.opensource.roundimageview.demo.R;
-import com.opensource.view.RoundImageView;
+
+import com.opensource.widget.RoundImageView;
 
 public class MainActivity extends Activity {
 
@@ -25,11 +25,12 @@ public class MainActivity extends Activity {
 		int r = (int) (Math.random() * 255);
 		int g = (int) (Math.random() * 255);
 		int b = (int) (Math.random() * 255);
-		img.setBorderInsideColor(Color.argb(255, r, g, b));
-		r = (int) (Math.random() * 255);
-		g = (int) (Math.random() * 255);
-		b = (int) (Math.random() * 255);
-		img.setBorderOutsideColor(Color.argb(255, r, g, b));
+//		img.setBorderInsideColor(Color.argb(255, r, g, b));
+//		r = (int) (Math.random() * 255);
+//		g = (int) (Math.random() * 255);
+//		b = (int) (Math.random() * 255);
+//		img.setBorderOutsideColor(Color.argb(255, r, g, b));
+		img.setBorderColor(Color.argb(255, r, g, b));
 	}
 	
 	int resId;

@@ -10,26 +10,29 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <com.opensource.view.RoundImageView
+    <com.opensource.widget.RoundImageView
         android:id="@+id/rd_img"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/head"
-        imagecontrol:border_inside_color="#FF00ff00"
-        imagecontrol:border_inside_thickness="2dp"
-        imagecontrol:border_outside_color="#FFFF0000"
-        imagecontrol:border_outside_thickness="2dp" />
+        imagecontrol:border_color="#FF00FF00"
+        imagecontrol:border_thickness="4dp"
+        imagecontrol:corner_rate="2" />
+<!--         imagecontrol:border_outside_color="#FFFF0000" -->
+<!--         imagecontrol:border_outside_thickness="2dp" -->
+<!--         imagecontrol:border_inside_color="#FF00ff00" -->
+<!--         imagecontrol:border_inside_thickness="2dp" -->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="changeBorder"
-        android:text="changeBorder" />
+        android:text="@string/change_border" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="changeRes"
-        android:text="changeRes" />
+        android:text="@string/change_image" />
 
 </LinearLayout>

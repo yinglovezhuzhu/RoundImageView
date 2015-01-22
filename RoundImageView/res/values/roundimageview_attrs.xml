@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="roundedimageview">
+    <declare-styleable name="roundimageview">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="corner_rate" format="integer" />
         <attr name="border_thickness" format="dimension" />
         <attr name="border_inside_thickness" format="dimension" />
         <attr name="border_outside_thickness" format="dimension" />
