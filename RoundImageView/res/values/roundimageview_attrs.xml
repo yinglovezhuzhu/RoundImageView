@@ -10,6 +10,7 @@
         <attr name="border_color" format="color" />
         <attr name="border_inside_color" format="color" />
         <attr name="border_outside_color" format="color"></attr>
+        <attr name="fill_color" format="color" />
     </declare-styleable>
 
 </resources>

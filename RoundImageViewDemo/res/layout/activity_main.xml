@@ -8,24 +8,72 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:gravity="center_horizontal" >
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:baselineAligned="false">
+        <LinearLayout 
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/has_border" />
+		    <com.opensource.widget.RoundImageView
+		        android:id="@+id/rd_img"
+		        android:layout_width="120dip"
+		        android:layout_height="150dip"
+		        android:scaleType="centerInside"
+		        android:src="@drawable/head"
+		        imagecontrol:border_color="#FF00FF00"
+		        imagecontrol:border_thickness="4dp"
+		        imagecontrol:corner_rate="8" />
+		<!--         imagecontrol:border_inside_color="#FF00ff00" -->
+		<!--         imagecontrol:border_inside_thickness="2dp" -->
+		<!--         imagecontrol:border_outside_color="#FFFF0000" -->
+		<!--         imagecontrol:border_outside_thickness="2dp" -->
+            
+        </LinearLayout>
+        <LinearLayout 
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_border" />
+		    <com.opensource.widget.NewRoundImageView
+		        android:id="@+id/nbrd_img"
+		        android:layout_width="150dip"
+		        android:layout_height="120dip"
+		        android:scaleType="centerInside"
+		        android:src="@drawable/head"
+		        imagecontrol:corner_rate="8" />
+		    
+<!-- 		        imagecontrol:border_inside_color="#FF00ff00" -->
+<!-- 		        imagecontrol:border_inside_thickness="2dp" -->
+<!-- 		        imagecontrol:border_outside_color="#FFFF0000" -->
+<!-- 		        imagecontrol:border_outside_thickness="2dp" -->
+<!-- 		        imagecontrol:border_color="#FF00FF00" -->
+<!-- 		        imagecontrol:border_thickness="4dp" -->
+            
+        </LinearLayout>
+    </LinearLayout>
 
-    <com.opensource.widget.RoundImageView
-        android:id="@+id/rd_img"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/head"
-        imagecontrol:border_color="#FF00FF00"
-        imagecontrol:border_thickness="4dp"
-        imagecontrol:corner_radius="20dip" />
-<!--         imagecontrol:border_inside_color="#FF00ff00" -->
-<!--         imagecontrol:border_inside_thickness="2dp" -->
-<!--         imagecontrol:border_outside_color="#FFFF0000" -->
-<!--         imagecontrol:border_outside_thickness="2dp" -->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:onClick="changeBorder"
         android:text="@string/change_border" />
 
