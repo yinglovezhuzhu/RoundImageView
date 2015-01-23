@@ -230,6 +230,13 @@ public class RoundImageView extends ImageView {
 	}
 	
 	@Override
+	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+		super.onSizeChanged(w, h, oldw, oldh);
+		mViewWidth = w;
+		mViewHeight = h;
+	}
+	
+	@Override
 	protected void onDraw(Canvas canvas) {
     	if(mCornerRate == DEFAULT_CORNER_RATE && mCornerRadius == DEFAULT_CORNER_RADIUS) {
     		// 没有设置边角属性，直接调用原来的绘制方法
@@ -243,24 +250,13 @@ public class RoundImageView extends ImageView {
 			return;
 		}
 
-		if (getWidth() == 0 || getHeight() == 0) {
+		if(mViewWidth <= 0 || mViewHeight <= 0) {
 			super.onDraw(canvas);
 			return;
 		}
 		
         if (drawable instanceof BitmapDrawable) {
-        	if (mViewWidth == 0) {
-        		mViewWidth = getWidth();
-        	}
-        	if (mViewHeight == 0) {
-        		mViewHeight = getHeight();
-        	}
         	
-        	int width = mViewWidth;
-        	int height = mViewHeight;
-        	if (width <= 0 || height <= 0) {
-        		return;
-        	}
         	int diameter = mViewWidth > mViewHeight ? mViewHeight : mViewWidth;
             Paint paint = ((BitmapDrawable) drawable).getPaint();
             paint.setAntiAlias(true);

@@ -17,7 +17,7 @@
         android:src="@drawable/head"
         imagecontrol:border_color="#FF00FF00"
         imagecontrol:border_thickness="4dp"
-        imagecontrol:corner_rate="2" />
+        imagecontrol:corner_radius="20dip" />
 <!--         imagecontrol:border_inside_color="#FF00ff00" -->
 <!--         imagecontrol:border_inside_thickness="2dp" -->
 <!--         imagecontrol:border_outside_color="#FFFF0000" -->
