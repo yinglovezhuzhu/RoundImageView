@@ -28,7 +28,7 @@
                 android:text="@string/has_border" />
 		    <com.opensource.widget.RoundImageView
 		        android:id="@+id/rd_img"
-		        android:layout_width="120dip"
+		        android:layout_width="150dip"
 		        android:layout_height="150dip"
 		        android:scaleType="centerInside"
 		        android:src="@drawable/head"
@@ -54,15 +54,15 @@
 		    <com.opensource.widget.NewRoundImageView
 		        android:id="@+id/nbrd_img"
 		        android:layout_width="150dip"
-		        android:layout_height="120dip"
-		        android:scaleType="centerInside"
+		        android:layout_height="150dip"
+		        android:scaleType="centerCrop"
 		        android:src="@drawable/head"
+		        imagecontrol:border_inside_color="#FF00ff00"
+		        imagecontrol:border_inside_thickness="2dp"
+		        imagecontrol:border_outside_color="#FFFF0000"
+		        imagecontrol:border_outside_thickness="2dp"
 		        imagecontrol:corner_rate="8" />
 		    
-<!-- 		        imagecontrol:border_inside_color="#FF00ff00" -->
-<!-- 		        imagecontrol:border_inside_thickness="2dp" -->
-<!-- 		        imagecontrol:border_outside_color="#FFFF0000" -->
-<!-- 		        imagecontrol:border_outside_thickness="2dp" -->
 <!-- 		        imagecontrol:border_color="#FF00FF00" -->
 <!-- 		        imagecontrol:border_thickness="4dp" -->
             

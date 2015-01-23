@@ -127,8 +127,8 @@ public class NewRoundImageView extends BaseRoundImageView {
 	        
 	        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
 	        // 绘制图片
-	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, canvas.getWidth(), 
-	        		canvas.getHeight(), 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
+	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+	        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 	        super.onDraw(canvas);
 	        canvas.drawPath(mPath, mPaint);
 	        canvas.restoreToCount(saveCount);
@@ -150,8 +150,8 @@ public class NewRoundImageView extends BaseRoundImageView {
 		        
 		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
 		        // 绘制图片
-		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, canvas.getWidth(), 
-		        		canvas.getHeight(), 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
+		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+		        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
 		        canvas.restoreToCount(saveCount);
@@ -166,8 +166,8 @@ public class NewRoundImageView extends BaseRoundImageView {
 		        
 		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
 		        // 绘制图片
-		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, canvas.getWidth(), 
-		        		canvas.getHeight(), 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
+		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+		        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
 		        canvas.restoreToCount(saveCount);
@@ -188,8 +188,8 @@ public class NewRoundImageView extends BaseRoundImageView {
 		        
 		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
 		        // 绘制图片
-		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, canvas.getWidth(), 
-		        		canvas.getHeight(), 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
+		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+		        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
 		        canvas.restoreToCount(saveCount);
@@ -200,8 +200,8 @@ public class NewRoundImageView extends BaseRoundImageView {
 			
 	        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
 	        // 绘制图片
-	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, canvas.getWidth(), 
-	        		canvas.getHeight(), 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
+	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+	        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 	        super.onDraw(canvas);
 	        canvas.drawPath(mPath, mPaint);
 	        canvas.restoreToCount(saveCount);
@@ -220,8 +220,8 @@ public class NewRoundImageView extends BaseRoundImageView {
     	mPath.addRoundRect(rect, radius, radius, Path.Direction.CW);  
     	
         // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer
-        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, canvas.getWidth(), 
-        		canvas.getHeight(), 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
+        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
         canvas.drawColor(color);
         canvas.drawPath(mPath, mPaint);
         canvas.restoreToCount(saveCount);
