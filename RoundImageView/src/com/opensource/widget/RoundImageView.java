@@ -146,7 +146,7 @@ public class RoundImageView extends ImageView {
 	public void setCornerRadius(int cornerRadius) {
 		this.mCornerRadius = cornerRadius;
 		this.mCornerRate = DEFAULT_CORNER_RATE;
-		invalidate();
+		postInvalidate();
  	}
 	
 	/**
@@ -160,7 +160,7 @@ public class RoundImageView extends ImageView {
 	public void setCornerRate(int cornerRate) {
 		this.mCornerRate = cornerRate;
 		this.mCornerRadius = DEFAULT_CORNER_RADIUS;
-		invalidate();
+		postInvalidate();
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class RoundImageView extends ImageView {
 			mBorderOutsideThickness = DEFAUTL_BORDER_THICKNESS;
 			mBorderInsideThickness = DEFAUTL_BORDER_THICKNESS;
 		}
-		invalidate();
+		postInvalidate();
 	}
 
 	/**
@@ -185,7 +185,7 @@ public class RoundImageView extends ImageView {
 		if(mBorderInsideThickness > DEFAUTL_BORDER_THICKNESS) {
 			mBorderThickness = DEFAUTL_BORDER_THICKNESS;
 		}
-		invalidate();
+		postInvalidate();
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class RoundImageView extends ImageView {
 		if(mBorderOutsideThickness > DEFAUTL_BORDER_THICKNESS) {
 			mBorderThickness = DEFAUTL_BORDER_THICKNESS;
 		}
-		invalidate();
+		postInvalidate();
 	}
 
 	/**
@@ -208,7 +208,7 @@ public class RoundImageView extends ImageView {
 		this.mBorderColor = borderColor;
 		this.mBorderOutsideColor = borderColor;
 		this.mBorderInsideColor = borderColor;
-		invalidate();
+		postInvalidate();
 	}
 
 	/**
@@ -217,7 +217,7 @@ public class RoundImageView extends ImageView {
 	 */
 	public void setBorderInsideColor(int borderInsideColor) {
 		this.mBorderInsideColor = borderInsideColor;
-		invalidate();
+		postInvalidate();
 	}
 
 	/**
@@ -226,7 +226,7 @@ public class RoundImageView extends ImageView {
 	 */
 	public void setBorderOutsideColor(int borderOutsideColor) {
 		this.mBorderOutsideColor = borderOutsideColor;
-		invalidate();
+		postInvalidate();
 	}
 	
 	@Override
