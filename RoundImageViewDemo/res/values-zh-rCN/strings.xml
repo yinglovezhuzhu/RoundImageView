@@ -2,9 +2,6 @@
 <resources>
     
     
-    <string name="has_border">有边框</string>
-    <string name="no_border">无边框</string>
-
     <string name="change_border">改变边框</string>
     <string name="change_image">更换图片</string>
 

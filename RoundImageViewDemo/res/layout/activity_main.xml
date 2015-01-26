@@ -22,10 +22,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/has_border" />
 		    <com.opensource.widget.RoundImageView
 		        android:id="@+id/rd_img"
 		        android:layout_width="150dip"
@@ -47,10 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/no_border" />
 		    <com.opensource.widget.NewRoundImageView
 		        android:id="@+id/nbrd_img"
 		        android:layout_width="150dip"
