@@ -41,12 +41,12 @@ public class BaseRoundImageView extends ImageView {
 
 	// 默认边框颜色，透明色
 	protected final int DEFAULT_COLOR = 0xFFFFFFFF;
-	protected final int DEFAUTL_BORDER_THICKNESS = 0;
+	protected final int DEFAULT_BORDER_THICKNESS = 0;
 	
 	// 边框宽度
-	protected int mBorderThickness = DEFAUTL_BORDER_THICKNESS;
-	protected int mBorderInsideThickness = DEFAUTL_BORDER_THICKNESS;
-	protected int mBorderOutsideThickness = DEFAUTL_BORDER_THICKNESS;
+	protected int mBorderThickness = DEFAULT_BORDER_THICKNESS;
+	protected int mBorderInsideThickness = DEFAULT_BORDER_THICKNESS;
+	protected int mBorderOutsideThickness = DEFAULT_BORDER_THICKNESS;
 
 	// 边框颜色
 	protected int mBorderColor = DEFAULT_COLOR;
@@ -98,14 +98,14 @@ public class BaseRoundImageView extends ImageView {
 		}
 		
 		mBorderThickness = typedArray.getDimensionPixelSize(
-				R.styleable.roundImageView_borderThickness, DEFAUTL_BORDER_THICKNESS);
-		if(mBorderThickness <= DEFAUTL_BORDER_THICKNESS) {
+				R.styleable.roundImageView_borderThickness, DEFAULT_BORDER_THICKNESS);
+		if(mBorderThickness <= DEFAULT_BORDER_THICKNESS) {
 			// xml中单框模式优先于双框的模式，单框模式没有设置或者没有有效值得时候，双框数值才会生效
 			mBorderInsideThickness = typedArray.getDimensionPixelSize(
-					R.styleable.roundImageView_borderInsideThickness, DEFAUTL_BORDER_THICKNESS);
+					R.styleable.roundImageView_borderInsideThickness, DEFAULT_BORDER_THICKNESS);
 			mBorderOutsideThickness = typedArray.getDimensionPixelSize(
-					R.styleable.roundImageView_borderOutsideThickness, DEFAUTL_BORDER_THICKNESS);
-			mBorderThickness = DEFAUTL_BORDER_THICKNESS;
+					R.styleable.roundImageView_borderOutsideThickness, DEFAULT_BORDER_THICKNESS);
+			mBorderThickness = DEFAULT_BORDER_THICKNESS;
 		}
 		
 		mBorderColor = typedArray.getColor(
@@ -162,9 +162,9 @@ public class BaseRoundImageView extends ImageView {
 	 */
 	public void setBorderThickness(int borderThickness) {
 		this.mBorderThickness = borderThickness;
-		if(mBorderThickness > DEFAUTL_BORDER_THICKNESS) {
-			mBorderOutsideThickness = DEFAUTL_BORDER_THICKNESS;
-			mBorderInsideThickness = DEFAUTL_BORDER_THICKNESS;
+		if(mBorderThickness > DEFAULT_BORDER_THICKNESS) {
+			mBorderOutsideThickness = DEFAULT_BORDER_THICKNESS;
+			mBorderInsideThickness = DEFAULT_BORDER_THICKNESS;
 		}
 		postInvalidate();
 	}
@@ -175,8 +175,8 @@ public class BaseRoundImageView extends ImageView {
 	 */
 	public void setBorderInsideThickness(int borderInsideThickness) {
 		this.mBorderInsideThickness = borderInsideThickness;
-		if(mBorderInsideThickness > DEFAUTL_BORDER_THICKNESS) {
-			mBorderThickness = DEFAUTL_BORDER_THICKNESS;
+		if(mBorderInsideThickness > DEFAULT_BORDER_THICKNESS) {
+			mBorderThickness = DEFAULT_BORDER_THICKNESS;
 		}
 		postInvalidate();
 	}
@@ -187,8 +187,8 @@ public class BaseRoundImageView extends ImageView {
 	 */
 	public void setBorderOutsideThickness(int borderOutsideThickness) {
 		this.mBorderOutsideThickness = borderOutsideThickness;
-		if(mBorderOutsideThickness > DEFAUTL_BORDER_THICKNESS) {
-			mBorderThickness = DEFAUTL_BORDER_THICKNESS;
+		if(mBorderOutsideThickness > DEFAULT_BORDER_THICKNESS) {
+			mBorderThickness = DEFAULT_BORDER_THICKNESS;
 		}
 		postInvalidate();
 	}

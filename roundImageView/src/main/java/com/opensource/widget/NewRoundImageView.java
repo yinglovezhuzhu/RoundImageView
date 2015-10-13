@@ -112,7 +112,7 @@ public class NewRoundImageView extends BaseRoundImageView {
 		
 		mPaint.setAntiAlias(true);
 		
-		if(mBorderThickness != DEFAUTL_BORDER_THICKNESS) { // 单框
+		if(mBorderThickness != DEFAULT_BORDER_THICKNESS) { // 单框
 			
 			float imageRadius = radius - mBorderThickness;
 			
@@ -133,12 +133,12 @@ public class NewRoundImageView extends BaseRoundImageView {
 	        canvas.drawPath(mPath, mPaint);
 	        canvas.restoreToCount(saveCount);
 			
-		} else if(mBorderInsideThickness != DEFAUTL_BORDER_THICKNESS 
-				|| mBorderOutsideThickness != DEFAUTL_BORDER_THICKNESS) { // 双框
+		} else if(mBorderInsideThickness != DEFAULT_BORDER_THICKNESS
+				|| mBorderOutsideThickness != DEFAULT_BORDER_THICKNESS) { // 双框
 			
 			float imageRadius = radius - mBorderInsideThickness - mBorderOutsideThickness;
 			
-			if(mBorderInsideThickness == DEFAUTL_BORDER_THICKNESS) { // 只有外框
+			if(mBorderInsideThickness == DEFAULT_BORDER_THICKNESS) { // 只有外框
 				// 绘制边框
 				drawRoundColorShape(canvas, mDrawRect, radius, mBorderOutsideColor);
 				
@@ -155,7 +155,7 @@ public class NewRoundImageView extends BaseRoundImageView {
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
 		        canvas.restoreToCount(saveCount);
-			} else if(mBorderOutsideThickness == DEFAUTL_BORDER_THICKNESS) { // 只有内框
+			} else if(mBorderOutsideThickness == DEFAULT_BORDER_THICKNESS) { // 只有内框
 				// 绘制边框
 				drawRoundColorShape(canvas, mDrawRect, radius, mBorderOutsideColor);
 				

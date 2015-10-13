@@ -66,7 +66,7 @@ import android.widget.ImageView;
  */
 public class RoundImageView extends BaseRoundImageView {
 	
-	private final PorterDuffXfermode mModeSrcIn = new PorterDuffXfermode(Mode.SRC_IN);
+    private final PorterDuffXfermode mModeSrcAtop = new PorterDuffXfermode(Mode.SRC_ATOP);
 	private final PorterDuffXfermode mModeDstOver = new PorterDuffXfermode(Mode.DST_OVER);
 
 	public RoundImageView(Context context) {
@@ -106,7 +106,7 @@ public class RoundImageView extends BaseRoundImageView {
             Paint paint = ((BitmapDrawable) drawable).getPaint();
             paint.setAntiAlias(true);
             paint.setStyle(Style.FILL);
-            
+
             mDrawRect.set(0, 0, mViewWidth, mViewHeight);
             
             int saveCount = canvas.saveLayerAlpha(mDrawRect, 255, Canvas.MATRIX_SAVE_FLAG | Canvas.CLIP_SAVE_FLAG 
@@ -127,50 +127,50 @@ public class RoundImageView extends BaseRoundImageView {
         		return;
         	}
         	
-            if(mBorderThickness != DEFAUTL_BORDER_THICKNESS) { // 单框
+            if(mBorderThickness != DEFAULT_BORDER_THICKNESS) { // 单框
             	
             	float drawableRadius = radius - mBorderThickness;
             	paint.setColor(mFillColor);
-            	mTempRect.set(mDrawRect.left + mBorderThickness, mDrawRect.top + mBorderThickness, 
-            			mDrawRect.right - mBorderThickness, mDrawRect.bottom - mBorderThickness);
+            	mTempRect.set(mDrawRect.left + mBorderThickness, mDrawRect.top + mBorderThickness,
+                        mDrawRect.right - mBorderThickness, mDrawRect.bottom - mBorderThickness);
             	canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);  
-            	paint.setXfermode(mModeSrcIn);  
+            	paint.setXfermode(mModeSrcAtop);
             	super.onDraw(canvas);
 
             	paint.setXfermode(mModeDstOver);
             	paint.setColor(mBorderColor);
-            	canvas.drawRoundRect(mDrawRect, radius, radius, paint);  
-            } else if(mBorderInsideThickness != DEFAUTL_BORDER_THICKNESS 
-            		|| mBorderOutsideThickness != DEFAUTL_BORDER_THICKNESS) { // 双框
-            	
+            	canvas.drawRoundRect(mDrawRect, radius, radius, paint);
+            } else if(mBorderInsideThickness != DEFAULT_BORDER_THICKNESS
+            		|| mBorderOutsideThickness != DEFAULT_BORDER_THICKNESS) { // 双框
+
             	float drawableRadius = radius - mBorderInsideThickness - mBorderOutsideThickness;
-            	
-            	if(mBorderInsideThickness == DEFAUTL_BORDER_THICKNESS) { // 只有外框
+
+            	if(mBorderInsideThickness == DEFAULT_BORDER_THICKNESS) { // 只有外框
                 	paint.setColor(mFillColor);
-                	mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness, 
-                			mDrawRect.right - mBorderOutsideThickness, mDrawRect.bottom - mBorderOutsideThickness);
-                	canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);  
-                	paint.setXfermode(mModeSrcIn);  
+                	mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness,
+                            mDrawRect.right - mBorderOutsideThickness, mDrawRect.bottom - mBorderOutsideThickness);
+                	canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);
+                	paint.setXfermode(mModeSrcAtop);
                 	super.onDraw(canvas);
                 	paint.setColor(mBorderOutsideColor);
-            	} else if(mBorderOutsideThickness == DEFAUTL_BORDER_THICKNESS) { // 只有内框
-            		
+            	} else if(mBorderOutsideThickness == DEFAULT_BORDER_THICKNESS) { // 只有内框
+
             		paint.setColor(mFillColor);
-            		mTempRect.set(mDrawRect.left + mBorderInsideThickness, mDrawRect.top + mBorderInsideThickness, 
-            				mDrawRect.right - mBorderInsideThickness, mDrawRect.bottom - mBorderInsideThickness);
-            		canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);  
-            		paint.setXfermode(mModeSrcIn);  
+            		mTempRect.set(mDrawRect.left + mBorderInsideThickness, mDrawRect.top + mBorderInsideThickness,
+                            mDrawRect.right - mBorderInsideThickness, mDrawRect.bottom - mBorderInsideThickness);
+            		canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);
+            		paint.setXfermode(mModeSrcAtop);
             		super.onDraw(canvas);
             		paint.setColor(mBorderInsideColor);
             	} else { // 有内外框
-            		
+
             		paint.setColor(mFillColor);
-            		mTempRect.set(mDrawRect.left + mBorderInsideThickness + mBorderOutsideThickness, 
-            				mDrawRect.top + mBorderInsideThickness + mBorderOutsideThickness, 
-            				mDrawRect.right - mBorderInsideThickness - mBorderOutsideThickness, 
-            				mDrawRect.bottom - mBorderInsideThickness - mBorderOutsideThickness);
-            		canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);  
-            		paint.setXfermode(mModeSrcIn);  
+            		mTempRect.set(mDrawRect.left + mBorderInsideThickness + mBorderOutsideThickness,
+                            mDrawRect.top + mBorderInsideThickness + mBorderOutsideThickness,
+                            mDrawRect.right - mBorderInsideThickness - mBorderOutsideThickness,
+                            mDrawRect.bottom - mBorderInsideThickness - mBorderOutsideThickness);
+            		canvas.drawRoundRect(mTempRect, drawableRadius, drawableRadius, paint);
+            		paint.setXfermode(mModeSrcAtop);
             		super.onDraw(canvas);
             		
             		float insideBorderRadius = radius - mBorderOutsideThickness;
@@ -189,9 +189,9 @@ public class RoundImageView extends BaseRoundImageView {
             	canvas.drawRoundRect(mDrawRect, radius, radius, paint);
             	
             } else { // 无框
-            	paint.setColor(Color.WHITE);
+            	paint.setColor(mFillColor);
             	canvas.drawRoundRect(mDrawRect, radius, radius, paint);  
-            	paint.setXfermode(mModeSrcIn);  
+            	paint.setXfermode(mModeSrcAtop);
             	super.onDraw(canvas);
             	
             	paint.setXfermode(mModeDstOver);
