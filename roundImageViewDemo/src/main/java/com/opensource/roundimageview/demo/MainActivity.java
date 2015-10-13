@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 		
 		final TransitionDrawable td =
                 new TransitionDrawable(new Drawable[]{
-                        new ColorDrawable(android.R.color.transparent),
+                        new ColorDrawable(Color.TRANSPARENT),
                         new BitmapDrawable(getResources(), bm)
                 });
 		mNBImg.setImageDrawable(td);
