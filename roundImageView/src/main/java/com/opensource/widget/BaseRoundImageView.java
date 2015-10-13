@@ -88,32 +88,32 @@ public class BaseRoundImageView extends ImageView {
 	 * @param attrs
 	 */
 	private void setCustomAttributes(AttributeSet attrs) {
-		TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.roundimageview);
+		TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.roundImageView);
 		
-		mCornerRate = typedArray.getInt(R.styleable.roundimageview_corner_rate, DEFAULT_CORNER_RATE);
+		mCornerRate = typedArray.getInt(R.styleable.roundImageView_cornerRate, DEFAULT_CORNER_RATE);
 		if(mCornerRate <= DEFAULT_CORNER_RATE) {
 			// xml中圆角比率优先圆角半径，当圆角比率没有设置或者无有效值时，圆角半径才有效
-			mCornerRadius  = typedArray.getDimensionPixelSize(R.styleable.roundimageview_corner_radius, DEFAULT_CORNER_RADIUS);
+			mCornerRadius  = typedArray.getDimensionPixelSize(R.styleable.roundImageView_cornerRadius, DEFAULT_CORNER_RADIUS);
 			mCornerRate = DEFAULT_CORNER_RATE;
 		}
 		
 		mBorderThickness = typedArray.getDimensionPixelSize(
-				R.styleable.roundimageview_border_thickness, DEFAUTL_BORDER_THICKNESS);
+				R.styleable.roundImageView_borderThickness, DEFAUTL_BORDER_THICKNESS);
 		if(mBorderThickness <= DEFAUTL_BORDER_THICKNESS) {
 			// xml中单框模式优先于双框的模式，单框模式没有设置或者没有有效值得时候，双框数值才会生效
 			mBorderInsideThickness = typedArray.getDimensionPixelSize(
-					R.styleable.roundimageview_border_inside_thickness, DEFAUTL_BORDER_THICKNESS);
+					R.styleable.roundImageView_borderInsideThickness, DEFAUTL_BORDER_THICKNESS);
 			mBorderOutsideThickness = typedArray.getDimensionPixelSize(
-					R.styleable.roundimageview_border_outside_thickness, DEFAUTL_BORDER_THICKNESS);
+					R.styleable.roundImageView_borderOutsideThickness, DEFAUTL_BORDER_THICKNESS);
 			mBorderThickness = DEFAUTL_BORDER_THICKNESS;
 		}
 		
 		mBorderColor = typedArray.getColor(
-				R.styleable.roundimageview_border_color, DEFAULT_COLOR);
+				R.styleable.roundImageView_borderColor, DEFAULT_COLOR);
 		mBorderInsideColor = typedArray.getColor(
-				R.styleable.roundimageview_border_inside_color,DEFAULT_COLOR);
+				R.styleable.roundImageView_borderInsideColor,DEFAULT_COLOR);
 		mBorderOutsideColor = typedArray.getColor
-				(R.styleable.roundimageview_border_outside_color, DEFAULT_COLOR);
+				(R.styleable.roundImageView_borderOutsideColor, DEFAULT_COLOR);
 		
 		// xml中单框模式优先于双框的模式
 		if (mBorderInsideColor == DEFAULT_COLOR) {
@@ -123,7 +123,7 @@ public class BaseRoundImageView extends ImageView {
 			mBorderOutsideColor = mBorderColor;
 		}
 		
-		mFillColor = typedArray.getColor(R.styleable.roundimageview_fill_color, DEFAULT_COLOR);
+		mFillColor = typedArray.getColor(R.styleable.roundImageView_fillColor, DEFAULT_COLOR);
 		
 		typedArray.recycle();
 	}

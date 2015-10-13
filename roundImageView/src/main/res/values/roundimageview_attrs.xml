@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="roundimageview">
-        <attr name="corner_radius" format="dimension" />
-        <attr name="corner_rate" format="integer" />
-        <attr name="border_thickness" format="dimension" />
-        <attr name="border_inside_thickness" format="dimension" />
-        <attr name="border_outside_thickness" format="dimension" />
-        <attr name="border_color" format="color" />
-        <attr name="border_inside_color" format="color" />
-        <attr name="border_outside_color" format="color"></attr>
-        <attr name="fill_color" format="color" />
+    <declare-styleable name="roundImageView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="cornerRate" format="integer" />
+        <attr name="borderThickness" format="dimension" />
+        <attr name="borderInsideThickness" format="dimension" />
+        <attr name="borderOutsideThickness" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderInsideColor" format="color" />
+        <attr name="borderOutsideColor" format="color" />
+        <attr name="fillColor" format="color" />
     </declare-styleable>
 
 </resources>
