@@ -75,20 +75,27 @@ public class BaseRoundImageView extends ImageView {
 
 	public BaseRoundImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		this.setCustomAttributes(attrs);
+		this.setCustomAttributes(context, attrs);
 	}
 
 	public BaseRoundImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		this.setCustomAttributes(attrs);
+		this.setCustomAttributes(context, attrs);
 	}
+
+
 
 	/**
 	 * 自定义属性
 	 * @param attrs
 	 */
-	private void setCustomAttributes(AttributeSet attrs) {
-		TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.roundImageView);
+	private void setCustomAttributes(Context context, AttributeSet attrs) {
+
+        if(null == attrs) {
+            return;
+        }
+
+		TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.roundImageView);
 		
 		mCornerRate = typedArray.getInt(R.styleable.roundImageView_cornerRate, DEFAULT_CORNER_RATE);
 		if(mCornerRate <= DEFAULT_CORNER_RATE) {

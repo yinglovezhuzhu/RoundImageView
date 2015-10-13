@@ -2,15 +2,15 @@
 <resources>
 
     <declare-styleable name="roundImageView">
-        <attr name="cornerRadius" format="dimension" />
+        <attr name="cornerRadius" format="dimension|reference" />
         <attr name="cornerRate" format="integer" />
-        <attr name="borderThickness" format="dimension" />
-        <attr name="borderInsideThickness" format="dimension" />
-        <attr name="borderOutsideThickness" format="dimension" />
-        <attr name="borderColor" format="color" />
-        <attr name="borderInsideColor" format="color" />
-        <attr name="borderOutsideColor" format="color" />
-        <attr name="fillColor" format="color" />
+        <attr name="borderThickness" format="dimension|reference" />
+        <attr name="borderInsideThickness" format="dimension|reference" />
+        <attr name="borderOutsideThickness" format="dimension|reference" />
+        <attr name="borderColor" format="color|reference" />
+        <attr name="borderInsideColor" format="color|reference" />
+        <attr name="borderOutsideColor" format="color|reference" />
+        <attr name="fillColor" format="color|reference" />
     </declare-styleable>
 
 </resources>
