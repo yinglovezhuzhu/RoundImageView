@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2015 The Android Open Source Project.
+ * Copyright (C) 2016. The Android Open Source Project.
  *
- *        yinglovezhuzhu@gmail.com
+ *         yinglovezhuzhu@gmail.com
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *         http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package com.opensource.widget;
 
@@ -21,6 +21,7 @@ package com.opensource.widget;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff.Mode;
@@ -79,10 +80,11 @@ public class NewRoundImageView extends BaseRoundImageView {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         mPaint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
         mPath.setFillType(Path.FillType.INVERSE_WINDING);
-    }  
-	
+    }
+
 	@Override
 	protected void onDraw(Canvas canvas) {
+
     	if(mCornerRate <= DEFAULT_CORNER_RATE && mCornerRadius <= DEFAULT_CORNER_RADIUS) {
     		// 没有设置边角属性，直接调用原来的绘制方法
     		super.onDraw(canvas);
@@ -93,64 +95,63 @@ public class NewRoundImageView extends BaseRoundImageView {
 			super.onDraw(canvas);
 			return;
 		}
-		
+
 		int diameter = mViewWidth > mViewHeight ? mViewHeight : mViewWidth;
-		
+
 		mDrawRect.set(0, 0, mViewWidth, mViewHeight);
-		
+
 		float radius = 0;
 		if(mCornerRate > DEFAULT_CORNER_RATE) { // 采用比率
 			radius = ((float) diameter) / mCornerRate;
 		} else if(mCornerRadius > DEFAULT_CORNER_RADIUS) { // 采用半径值
 			float halfDiameter = ((float) diameter) / 2;
-			// 圆角半径的最大为最小边的一般，如果是正方形，最大的圆角程度是一个圆
+			// 圆角半径的最大为最小边的一半，如果是正方形，最大的圆角程度是一个圆
 			radius = mCornerRadius > halfDiameter ? halfDiameter : mCornerRadius;
 		} else { // 没有设置，即没有圆角
 			super.onDraw(canvas);
 			return;
 		}
-		
+
 		mPaint.setAntiAlias(true);
-		
+
 		if(mBorderThickness != DEFAULT_BORDER_THICKNESS) { // 单框
-			
+
 			float imageRadius = radius - mBorderThickness;
-			
+
 			// 绘制边框
 			drawRoundColorShape(canvas, mDrawRect, radius, mBorderColor);
-			
+
 			// 绘制填充背景
-	        mTempRect.set(mDrawRect.left + mBorderThickness, mDrawRect.top + mBorderThickness, 
+	        mTempRect.set(mDrawRect.left + mBorderThickness, mDrawRect.top + mBorderThickness,
 	        		mDrawRect.right - mBorderThickness, mDrawRect.bottom - mBorderThickness);
 	        drawRoundColorShape(canvas, mTempRect, imageRadius, mFillColor);
-	        
-	        
-	        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
+
+	        // 保存当前layer的透明像素到离屏缓冲区。并新创建一个透明度爲255的新layer
 	        // 绘制图片
-	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight,
 	        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 	        super.onDraw(canvas);
 	        canvas.drawPath(mPath, mPaint);
 	        canvas.restoreToCount(saveCount);
-			
+
 		} else if(mBorderInsideThickness != DEFAULT_BORDER_THICKNESS
 				|| mBorderOutsideThickness != DEFAULT_BORDER_THICKNESS) { // 双框
-			
+
 			float imageRadius = radius - mBorderInsideThickness - mBorderOutsideThickness;
-			
+
 			if(mBorderInsideThickness == DEFAULT_BORDER_THICKNESS) { // 只有外框
 				// 绘制边框
 				drawRoundColorShape(canvas, mDrawRect, radius, mBorderOutsideColor);
-				
+
 				// 绘制填充背景
-		        mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness, 
+		        mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness,
 		        		mDrawRect.right - mBorderOutsideThickness, mDrawRect.bottom - mBorderOutsideThickness);
 		        drawRoundColorShape(canvas, mTempRect, imageRadius, mFillColor);
-		        
-		        
-		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
+
+
+		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer
 		        // 绘制图片
-		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight,
 		        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
@@ -158,37 +159,37 @@ public class NewRoundImageView extends BaseRoundImageView {
 			} else if(mBorderOutsideThickness == DEFAULT_BORDER_THICKNESS) { // 只有内框
 				// 绘制边框
 				drawRoundColorShape(canvas, mDrawRect, radius, mBorderOutsideColor);
-				
+
 				// 绘制背景填充色
-				mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness, 
+				mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness,
 		        		mDrawRect.right - mBorderOutsideThickness, mDrawRect.bottom - mBorderOutsideThickness);
 		        drawRoundColorShape(canvas, mTempRect, imageRadius, mBorderInsideColor);
-		        
-		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
+
+		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer
 		        // 绘制图片
-		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight,
 		        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
 		        canvas.restoreToCount(saveCount);
 			} else { // 有内外框
-				
+
 				// 绘制外边框
 				drawRoundColorShape(canvas, mDrawRect, radius, mBorderOutsideColor);
-				
+
 				// 绘制内边框
-		        mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness, 
+		        mTempRect.set(mDrawRect.left + mBorderOutsideThickness, mDrawRect.top + mBorderOutsideThickness,
 		        		mDrawRect.right - mBorderOutsideThickness, mDrawRect.bottom - mBorderOutsideThickness);
 		        drawRoundColorShape(canvas, mTempRect, radius - mBorderOutsideThickness, mBorderInsideColor);
-				
+
 				// 绘制背景填充色
-		        mTempRect.set(mTempRect.left + mBorderInsideThickness, mTempRect.top + mBorderInsideThickness, 
+		        mTempRect.set(mTempRect.left + mBorderInsideThickness, mTempRect.top + mBorderInsideThickness,
 		        		mTempRect.right - mBorderInsideThickness, mTempRect.bottom - mBorderInsideThickness);
 		        drawRoundColorShape(canvas, mTempRect, imageRadius, mFillColor);
-		        
-		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
+
+		        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer
 		        // 绘制图片
-		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+		        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight,
 		        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 		        super.onDraw(canvas);
 		        canvas.drawPath(mPath, mPaint);
@@ -197,10 +198,10 @@ public class NewRoundImageView extends BaseRoundImageView {
 		} else { // 无框
 			// 绘制背景填充色
 			drawRoundColorShape(canvas, mDrawRect, radius, mFillColor);
-			
-	        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer 
+
+	        // 保存当前layer的透明橡树到离屏缓冲区。并新创建一个透明度爲255的新layer
 	        // 绘制图片
-	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight, 
+	        int saveCount = canvas.saveLayerAlpha(0.0F, 0.0F, mViewWidth, mViewHeight,
 	        		255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
 	        super.onDraw(canvas);
 	        canvas.drawPath(mPath, mPaint);
