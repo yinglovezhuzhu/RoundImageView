@@ -4,9 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RoundImageView.iml" filepath="$PROJECT_DIR$/RoundImageView.iml" />
       <module fileurl="file://$PROJECT_DIR$/RoundImageViewDemo.iml" filepath="$PROJECT_DIR$/RoundImageViewDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/roundImageViewDemo.iml" filepath="$PROJECT_DIR$/demo/roundImageViewDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/roundImageView/roundImageView.iml" filepath="$PROJECT_DIR$/roundImageView/roundImageView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/roundImageViewDemo/roundImageViewDemo.iml" filepath="$PROJECT_DIR$/roundImageViewDemo/roundImageViewDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/roundImageViewDemo/roundImageViewDemo.iml" filepath="$PROJECT_DIR$/roundImageViewDemo/roundImageViewDemo.iml" />
     </modules>
   </component>
 </project>

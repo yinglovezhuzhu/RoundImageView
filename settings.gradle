@@ -1,2 +1,2 @@
 include ':roundImageView'
-include ':roundImageViewDemo'
+include ':demo'
