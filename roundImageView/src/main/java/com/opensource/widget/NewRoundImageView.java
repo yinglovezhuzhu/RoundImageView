@@ -27,6 +27,7 @@ import android.graphics.Path;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -84,7 +85,6 @@ public class NewRoundImageView extends BaseRoundImageView {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-
     	if(mCornerRate <= DEFAULT_CORNER_RATE && mCornerRadius <= DEFAULT_CORNER_RADIUS) {
     		// 没有设置边角属性，直接调用原来的绘制方法
     		super.onDraw(canvas);
