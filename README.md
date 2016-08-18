@@ -39,7 +39,8 @@ A Custom ImageView to show image with round corner
 <p>大概思路：创建以“圆角矩形”为结构的Path，并利用Path.FillType.INVERSE_WINDING反选“圆角矩形区域”。
 从而达到圆角边缘化的效果。<br>
 优点：由于不需要对ImageView的图片进行字节操作，所以速度快许多，而且在动画表现上十分平滑。<br>
-缺点：圆角以外会变成黑色，但是可以通过设置背景颜色来解决，另外就是必须在API 11及以上版本才能使用。<br>
+缺点：圆角以外会变成黑色，但是可以通过设置背景颜色来解决(将NewImageView的背景设置成跟父容器背景一样的颜色)，
+另外就是必须在API 11及以上版本才能使用。<br>
 
 <p><font color="#FF0000">
 特别提示：如果在API 11或者以上版本的系统，强烈建议使用这个。<br><br>
