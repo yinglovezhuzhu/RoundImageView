@@ -1,7 +1,7 @@
 # RoundImageView
 A Custom ImageView to show image with round corner
 
-# <font color="red">重要提示：这种方法在Android 8.1开始不再适用，在该版本之后不再支持Canvas的几个绘制属性，可以使用[RoundedBitmapDrawable](https://developer.android.com/reference/android/support/v4/graphics/drawable/RoundedBitmapDrawable?hl=ru)替代</font>
+<font color="red">==重要提示：这种方法在Android 8.1开始不再适用，在该版本之后不再支持Canvas的几个绘制属性，可以使用[RoundedBitmapDrawable](https://developer.android.com/reference/android/support/v4/graphics/drawable/RoundedBitmapDrawable?hl=ru)替代==</font>
 
 一个可以设置图片显示成圆角的图片显示控件，还支持给图片添加边框，并且支持双边框
 
